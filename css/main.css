@@ -24,6 +24,8 @@ html, body{
 }
 body{
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /*
@@ -104,11 +106,32 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
+hr.style-eight {
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
+hr.style-eight:after {
+    content: "<J|L>";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+    z-index: 1;
+}
 /*maincontainer*/
 .main-container{
     padding: 0 50px;
 }
-
+section{
+    padding: 25px 0;
+}
 /*Banner*/
 .banner{
     height: 25vh;
@@ -121,15 +144,72 @@ textarea {
 nav{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: stretch;
+    /*background-color: #010101;*/
+    background: rgba(1,1,1,1);
+    background: -moz-linear-gradient(top, rgba(1,1,1,1) 0%, rgba(1,1,1,1) 24%, rgba(76,76,76,1) 74%, rgba(76,76,76,1) 94%, rgba(102,102,102,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(1,1,1,1)), color-stop(24%, rgba(1,1,1,1)), color-stop(74%, rgba(76,76,76,1)), color-stop(94%, rgba(76,76,76,1)), color-stop(100%, rgba(102,102,102,1)));
+    background: -webkit-linear-gradient(top, rgba(1,1,1,1) 0%, rgba(1,1,1,1) 24%, rgba(76,76,76,1) 74%, rgba(76,76,76,1) 94%, rgba(102,102,102,1) 100%);
+    background: -o-linear-gradient(top, rgba(1,1,1,1) 0%, rgba(1,1,1,1) 24%, rgba(76,76,76,1) 74%, rgba(76,76,76,1) 94%, rgba(102,102,102,1) 100%);
+    background: -ms-linear-gradient(top, rgba(1,1,1,1) 0%, rgba(1,1,1,1) 24%, rgba(76,76,76,1) 74%, rgba(76,76,76,1) 94%, rgba(102,102,102,1) 100%);
+    background: linear-gradient(to bottom, rgba(1,1,1,1) 0%, rgba(1,1,1,1) 24%, rgba(76,76,76,1) 74%, rgba(76,76,76,1) 94%, rgba(102,102,102,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#010101', endColorstr='#666666', GradientType=0 );
+    width: 100%;
+    height: 7%;
+    z-index: 2;
 }
-nav a{
-    margin: 10px;
+.menu{
+    margin: 0;
+    align-self: stretch;
+    display: flex;
+    justify-content: flex-end;
+    align-content: stretch;
+    align-items: stretch;
+    flex-basis: 5;
+    width: 100%;
+}
+.menu a{
+    box-sizing: border-box;
+    height: 100%;
+    margin: auto 0;
+    border: outset transparent 2px;
     text-decoration: none;
     color: #dab055;
-    font-weight: 600;
+    font-weight: 400;
+    font-size: 1.3em;
+    padding: 4px;
+    transition: all 150ms ease-in;
 }
-
+.menu-bar{
+    flex-basis: 1;
+    padding-left: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 2em;
+    height: 2.5em;
+    visibility: hidden;
+}
+.menu-bar div{
+    flex-grow: 1;
+    height: 1px;
+}
+.menu-bar div:nth-child(odd){
+    border-bottom: 1px solid #DAB055;
+}
+.menu a:hover{
+    border-radius: 8%;
+    border: outset #20202E 2px;
+    background-color: #423835;
+    opacity: .5;
+}
+.menu a.active{
+    border: inset #20202E 2px;
+    background-color: #febc68;
+    opacity: .75;
+    color: #0b0b0e;
+}
 /*ABOUT*/
 .about{
     text-align: center;
@@ -137,6 +217,7 @@ nav a{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-top: 50px;
 }
 .education li{
     list-style: circle;
@@ -154,14 +235,89 @@ nav a{
     display: none;
 }
 
+.github{
+    height: 75px;
+    width: auto;
+}
+.github a{
+    text-decoration: none;
+    color: #222222;
+}
 
+/*PROJECT*/
+
+.project-container{
+    min-height: 50vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+}
+.project{
+    display: flex;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: stretch;
+    min-height: 300px;
+}
+
+.project a{
+    text-decoration: none;
+}
+.project a:visited{
+    color: black;
+}
+.proj{
+    flex-basis: 40%;
+    min-width: 300px;
+    align-content: stretch;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.proj div{
+    background-color: transparent;
+    min-height: 150px;
+    width: 100%;
+    transition: background-image 300ms ease-in;
+}
+.proj p{
+    max-width: 300px;
+}
+.thumbnails{
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+.thumbnails div{
+    height: 75px;
+    min-width: 85px;
+    margin: none;
+    padding: none;
+}
+/* .thumbnails div:nth-child(odd){
+    background-color: black;
+}
+.thumbnails div:nth-child(even){
+    background-color: red; */
+/* } */
 /* TECHNOLOGY SECTION */
 .tech{
+    flex-basis: 40%;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     height: 30vh;
+
 }
-h2{
-    text-align: center;
-}
+
 
 i {
     font-size: 3em;
@@ -179,11 +335,8 @@ i {
 }
 .icons{
     text-align: center;
+    display: none;
 
-}
-.icons a{
-    text-decoration: none;
-    color: #222222;
 }
 i:hover{
     font-size: 4em;
@@ -192,26 +345,13 @@ i:hover{
 .label{
     font-size: .8em;
     display: none;
-    transition: display 100ms ease-in;
 
 }
-/*PROJECT*/
-.project-container{
-    text-align: center;
-}
-.project{
-    display: flex;
-    justify-content: space-evenly;
-}
-.project-images{
-    height: 200px;
-    width: 200px;
-    border-radius: 10%;
-}
-
 /*CONTACT*/
-#contact h3{
-    text-align: center;
+#contact{
+    min-height: 100vh;
+}
+#contact h2{text-align: center;
 }
 
 .contact{
@@ -239,25 +379,129 @@ i:hover{
     border-radius: 3px;
     padding: 1%;
     border: none;
-    border-bottom: solid black .1em;
+    border-bottom: solid black .05em;
 }
 .form-group input:focus, .form-group textarea:focus{
     outline: none;
     border: none;
-    border-bottom: solid black .2em;
+    border-bottom: double darkred .2em;
 }
 .submit{
-    border: none;
+    border: solid transparent 2px;
     border-radius: 5px;
     background-color: #bada55;
-    padding: 1% 2%;
+    padding: 1% 3%;
+}
+.submit:hover{
+    border: groove #bada55 2px;
+    background-color: #bada44;
 }
 .reset{
-    border: none;
+    border: solid transparent 2px;
     border-radius: 5px;
     background-color: #ff8080;
     padding: 1% 2%;
 }
+.reset:hover{
+    border: groove #ff8080 2px;
+    background-color: #ff5050;
+}
+/*FOOTER*/
+footer{
+    color: #dab055;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #443C3A;
+    width: 100vw;
+}
+
+
+/*RESPONSIVE CSS*/
+
+@media screen and (max-width: 450px){
+    .main-container{
+        padding: 0;
+    }
+    .contact form{
+        width: 100%;
+    }
+    nav{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+    }
+    .menu{
+        flex-basis: 1;
+        flex-direction: column;
+        font-size: 1.5em;
+        display: none;
+        animation-duration: 300ms;
+        animation-timing-function: ease-in;
+        animation-iteration-count: 1;
+    }
+    .menu-bar{
+        visibility: visible;
+    }
+    .project{
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+    }
+    .project div{
+        margin-bottom: 10px;
+    }
+
+}
+@media screen and (max-width: 720px){
+    .main-container{
+        padding: 0;
+    }
+    .contact form{
+        width: 100%;
+    }
+    .menu{
+        display: flex;
+        justify-content: flex-start;
+        visibility: visible;
+        font-size: 1em;
+    }
+    .project{
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+    }
+    .project div{
+        margin-bottom: 10px;
+    }
+}
+@media screen and (max-width: 1366px){
+    .contact form{
+        width: 90%;
+    }
+}
+
+/*ANIMATION KEYFRAMES*/
+@keyframes height{
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 175px;
+    }
+}
+@keyframes done{
+    0%{
+        height: 175px;
+    }
+    100%{
+        height: 0;
+    }
+
+}
+
 
 
 

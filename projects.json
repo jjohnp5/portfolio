@@ -1,0 +1,46 @@
+{
+    "project": [ {
+        "id" : "1",
+        "name": "Patatap RandPoly",
+        "img": "./img/patatap.PNG",
+        "link": "./Patatapoly/circles.html",
+        "desc": "This project is made through PaperScriptJS. Press your letter keys to see the magic happen!",
+        "technologies": [
+            "devicon-javascript-plain",
+            "devicon-html5-plain"
+        ]
+    },
+    {
+        "id" : "2",
+        "name": "RIOT API",
+        "img": "./img/league.png",
+        "link": "https://github.com/jjohnp5/riot",
+        "desc": "Full stack project utilizing RIOT's API to gather in-game and match history data",
+        "technologies": [
+            "devicon-html5-plain",
+            "devicon-css3-plain",
+            "devicon-javascript-plain",
+            "devicon-jquery-plain",
+            "devicon-nodejs-plain",
+            "devicon-express-original"
+
+        ]
+    },
+    {
+        "id" : "3",
+        "name": "Daz Moviez",
+        "img": "./img/patatap.PNG",
+        "link": "https://project3.com",
+        "desc": "This is a project utilizing themoviedb's API. Only available searching and is not finished yet.",
+        "technologies":[
+            "devicon-html5-plain",
+            "devicon-css3-plain",
+            "devicon-javascript-plain",
+            "devicon-nodejs-plain",
+            "devicon-express-original"
+
+        ]
+
+    }
+    ]
+}
