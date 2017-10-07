@@ -1,13 +1,16 @@
 {
     "project": [ {
         "id" : "1",
-        "name": "Patatap RandPoly",
+        "name": "zClient",
         "img": "./img/patatap.PNG",
-        "link": "./Patatapoly/circles.html",
-        "desc": "This project is made through PaperScriptJS. Press your letter keys to see the magic happen!",
+        "link": "/zclient",
+        "desc": "<p>PHP/mySQL client management app. It lets users add or remove new and old clients to their managed clients.</p> <p>For Test - User: test@test.com PW: test</p>",
         "technologies": [
             "devicon-javascript-plain",
-            "devicon-html5-plain"
+            "devicon-html5-plain",
+            "devicon-php-plain",
+            "devicon-mysql-plain",
+            "devicon-bootstrap-plain"
         ]
     },
     {
@@ -28,16 +31,15 @@
     },
     {
         "id" : "3",
-        "name": "Daz Moviez",
-        "img": "./img/patatap.PNG",
-        "link": "https://project3.com",
-        "desc": "This is a project utilizing themoviedb's API. Only available searching and is not finished yet.",
+        "name": "Portfolio Github",
+        "img": "./img/portfolio.PNG",
+        "link": "https://github.com/jjohnp5/portfolio",
+        "desc": "Full front end code for portfolio site. Utilized ajax to create dynamic data of projects.",
         "technologies":[
             "devicon-html5-plain",
             "devicon-css3-plain",
-            "devicon-javascript-plain",
-            "devicon-nodejs-plain",
-            "devicon-express-original"
+            "devicon-jquery-plain",
+            "devicon-javascript-plain"
 
         ]
 

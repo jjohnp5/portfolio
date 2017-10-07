@@ -1,4 +1,4 @@
-/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+/*! HTML5 Boilerplate v6.0.1 | MIT License | https://html5boilerplate.com/ */
 
 /*
  * What follows is the result of much research on cross-browser styling.
@@ -27,12 +27,13 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
-
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
  *
- * These selection rule sets have to be separate.
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
  * Customize the background color to match your design.
  */
 
@@ -107,6 +108,19 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+
+
+/*maincontainer*/
+.main-container{
+    padding: 0 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+section{
+    padding: 25px 0;
+}
+
 hr.style-eight {
     overflow: visible; /* For IE */
     padding: 0;
@@ -114,6 +128,8 @@ hr.style-eight {
     border-top: medium double #333;
     color: #333;
     text-align: center;
+    min-width: 300px;
+    align-self: center;
 }
 hr.style-eight:after {
     content: "<J|L>";
@@ -124,13 +140,6 @@ hr.style-eight:after {
     padding: 0 0.25em;
     background: white;
     z-index: 1;
-}
-/*maincontainer*/
-.main-container{
-    padding: 0 50px;
-}
-section{
-    padding: 25px 0;
 }
 /*Banner*/
 .banner{
@@ -175,7 +184,7 @@ nav{
     margin: auto 0;
     border: outset transparent 2px;
     text-decoration: none;
-    color: #dab055;
+    color: #F8AA5A;
     font-weight: 400;
     font-size: 1.3em;
     padding: 4px;
@@ -196,17 +205,17 @@ nav{
     height: 1px;
 }
 .menu-bar div:nth-child(odd){
-    border-bottom: 1px solid #DAB055;
+    border-bottom: 1px solid #FFAF5D;
 }
 .menu a:hover{
     border-radius: 8%;
-    border: outset #20202E 2px;
-    background-color: #423835;
+    border: outset #402C17 2px;
+    background-color: #7F572E;
     opacity: .5;
 }
 .menu a.active{
-    border: inset #20202E 2px;
-    background-color: #febc68;
+    border: inset #402C17 2px;
+    background-color: #E59D53;
     opacity: .75;
     color: #0b0b0e;
 }
@@ -319,7 +328,7 @@ nav{
 }
 
 
-i {
+.icons i, .github i {
     font-size: 3em;
     text-align: center;
     transition-property: font-size, color;
@@ -338,9 +347,9 @@ i {
     display: none;
 
 }
-i:hover{
+.icons i:hover, .github i:hover{
     font-size: 4em;
-    color: #dab055;
+    color: #F8AA5A;
 }
 .label{
     font-size: .8em;
@@ -384,7 +393,7 @@ i:hover{
 .form-group input:focus, .form-group textarea:focus{
     outline: none;
     border: none;
-    border-bottom: double darkred .2em;
+    border-bottom: double #402C17 .3em;
 }
 .submit{
     border: solid transparent 2px;
@@ -408,13 +417,38 @@ i:hover{
 }
 /*FOOTER*/
 footer{
-    color: #dab055;
-    padding: 25px;
+    padding: 10px 0;
+    color: #F8AA5A;
     display: flex;
-    justify-content: center;
-    align-content: center;
+    justify-content: space-between;
+    align-items: center;
     background-color: #443C3A;
-    width: 100vw;
+    width: 100%;
+}
+footer p{
+    margin: 0;
+}
+.social{
+    display: flex;
+    justify-content: flex-end;
+    color: #402C17;
+    flex-basis: 30%;
+}
+.social a{
+    margin: 5px 5px;
+    color: #F8AA5A;
+    text-decoration: none;
+}
+.social a:hover{
+    color: #7F572E;
+}
+
+@media screen and (max-width: 700px) {
+    footer{
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
 }
 
 
@@ -445,14 +479,7 @@ footer{
     .menu-bar{
         visibility: visible;
     }
-    .project{
-        flex-direction: column;
-        align-content: center;
-        align-items: center;
-    }
-    .project div{
-        margin-bottom: 10px;
-    }
+
 
 }
 @media screen and (max-width: 720px){
@@ -468,6 +495,8 @@ footer{
         visibility: visible;
         font-size: 1em;
     }
+}
+@media screen and (max-width: 900px){
     .project{
         flex-direction: column;
         align-content: center;
@@ -516,6 +545,9 @@ footer{
 
 
 
+
+
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -530,18 +562,25 @@ footer{
 
 /*
  * Hide only visually, but have it available for screen readers:
- * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
  */
 
 .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
     height: 1px;
     margin: -1px;
     overflow: hidden;
     padding: 0;
     position: absolute;
     width: 1px;
+    white-space: nowrap; /* 1 */
 }
 
 /*
@@ -553,11 +592,14 @@ footer{
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
     clip: auto;
+    -webkit-clip-path: none;
+    clip-path: none;
     height: auto;
     margin: 0;
     overflow: visible;
     position: static;
     width: auto;
+    white-space: inherit;
 }
 
 /*
@@ -616,9 +658,7 @@ footer{
 @media print {
     *,
     *:before,
-    *:after,
-    *:first-letter,
-    *:first-line {
+    *:after {
         background: transparent !important;
         color: #000 !important; /* Black prints faster:
                                    http://www.sanbeiji.com/archives/953 */
@@ -649,6 +689,9 @@ footer{
         content: "";
     }
 
+    pre {
+        white-space: pre-wrap !important;
+    }
     pre,
     blockquote {
         border: 1px solid #999;
@@ -667,10 +710,6 @@ footer{
     tr,
     img {
         page-break-inside: avoid;
-    }
-
-    img {
-        max-width: 100% !important;
     }
 
     p,

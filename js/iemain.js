@@ -12,18 +12,19 @@
     const menuBar = document.querySelector('.menu-bar');
     let menuToggle = false;
     const navLinks = document.querySelectorAll('.menu a');
+    console.log(navLinks);
     const thumbnailContainer = $('.thumbnails');
     const bigProjDesc = $('.proj p');
     const bigProjImage = $('.proj div');
     const bigProLink = $('.proj a');
     console.log(icons);
-    let ajaxReq = $.ajax("/projects.json").done(function (data) {
+    let ajaxReq = $.ajax({url: "/projects.json", dataType: 'jsonp'}).done(function (data) {
 
-        data.project.forEach(project => {
+        Array.prototype.forEach.call(data.project, function (project) {
             divBG = project.img;
             divName = project.name;
             divDesc = project.desc;
-            divTemplate = `<div class="proj-thumb" id="proj-${project.id}"></div>`;
+            divTemplate = '<div class="proj-thumb" id="proj-' + project.id + '"></div>';
             thumbnailContainer.append(divTemplate);
             div = $('#proj-' + project.id);
             div.attr({"name": divName, "link": project.link, "desc": divDesc, "technologies": project.technologies});
@@ -33,36 +34,37 @@
                 "background-size": "cover"
             });
 
-        })
+        });
+        createProjListener();
     });
 
-    async function createProjListener() {
-        await ajaxReq;
+    function createProjListener() {
         const projThumbs = document.querySelectorAll('.proj-thumb');
-        projThumbs.forEach(thumb => {
+        Array.prototype.forEach.call(projThumbs, function (thumb) {
             thumb.addEventListener('click', function () {
                 for (let i = 0; i < projThumbs.length; i++) {
-                    projThumbs[i].style.border = "none"
+                    projThumbs[i].style.border = "none";
                 }
                 this.style.border = "2px solid black";
                 bigProjImage.css({
                     'background': this.style.background, "background-position": "center",
                     "background-size": "contain", "background-repeat": "no-repeat"
-                })
+                });
                 bigProLink.text(this.attributes.name.nodeValue);
                 bigProLink.attr("href", this.attributes.link.nodeValue);
-                bigProjDesc.html(this.attributes.desc.nodeValue);
+                bigProjDesc.text(this.attributes.desc.nodeValue);
                 techs = this.attributes.technologies.nodeValue.split(',');
-                icons.forEach(icon => {
+                Array.prototype.forEach.call(icons, function (icon) {
                     icon.style.display = "none";
-                    techs.forEach(tech => {
+                    Array.prototype.forEach.call(techs, function (tech) {
                         if (icon.firstChild.className === tech) {
                             icon.style.display = "block";
                         }
-                    })
-                })
-            })
-        })
+
+                    });
+                });
+            });
+        });
     }
 
     createProjListener();
@@ -71,36 +73,36 @@
     if (window.innerWidth > 450) {
         menu.show();
         menu.css("visibility", "visible");
-        navLinks.forEach(link => {
-            link.addEventListener('click', linkListenerDefault)
-        })
+        Array.prototype.forEach.call(navLinks, function (link) {
+            link.addEventListener('click', linkListenerDefault);
+        });
     } else {
         menu.hide();
-        navLinks.forEach(link => {
-            link.addEventListener('click', linkListener)
-        })
+        Array.prototype.forEach.call(navLinks, function (link) {
+            link.addEventListener('click', linkListener);
+        });
 
     }
 
     nav.style.position = "absolute";
-    nav.style.top = `${navRect.height}px`;
+    nav.style.top = navRect.height + 'px';
     nav.style.left = 0;
     nav.style.height = "auto";
 
 
-    icons.forEach(function (icon) {
+    Array.prototype.forEach.call(icons, function (icon) {
         icon.addEventListener('mouseenter', function () {
-            this.children[1].style.display = "block"
+            this.lastChild.style.display = "block";
         });
         icon.addEventListener('mouseleave', function () {
-            this.children[1].style.display = "none"
+            this.lastChild.style.display = "none";
         });
     });
     github.addEventListener('mouseenter', function () {
-        this.lastChild.style.display = "block"
+        this.lastChild.style.display = "block";
     });
     github.addEventListener('mouseleave', function () {
-        this.lastChild.style.display = "none"
+        this.lastChild.style.display = "none";
     });
 
     homeBtn.click(function () {
@@ -108,30 +110,30 @@
             story.slideDown();
         });
 
-    })
+    });
     resumeBtn.click(function () {
         story.slideUp(500, function () {
             resume.slideDown();
         });
-    })
+    });
     window.onresize = function () {
         if (window.innerWidth > 450) {
             menu.show();
-            navLinks.forEach(link => {
-                link.removeEventListener('click', linkListener)
-                link.addEventListener('click', linkListenerDefault)
+            Array.prototype.forEach.call(navLinks, function (link) {
+                link.removeEventListener('click', linkListener);
+                link.addEventListener('click', linkListenerDefault);
 
-            })
+            });
 
         } else {
             menu.hide();
-            navLinks.forEach(link => {
+            Array.prototype.forEach.call(navLinks, function (link) {
                 link.removeEventListener('click', linkListenerDefault);
-                link.addEventListener('click', linkListener)
-            })
+                link.addEventListener('click', linkListener);
+            });
 
         }
-    }
+    };
     window.addEventListener('scroll', function () {
         if (window.scrollY >= navRect.height) {
             nav.style.position = "fixed";
@@ -146,7 +148,7 @@
             // menuBar.style.visibility = "visible";
         } else {
             nav.style.position = "absolute";
-            nav.style.top = `${navRect.height}px`;
+            nav.style.top = navRect.height + 'px';
             nav.style.left = 0;
             nav.style.height = "auto";
             // menu.style.visibility = "visible";
@@ -156,7 +158,7 @@
             // nav.style.alignItems = "center";
 
         }
-    })
+    });
     menuBar.addEventListener('click', function () {
         if (!menuToggle) {
             this.classList.add("active");
@@ -172,24 +174,23 @@
             menuToggle = false;
 
         }
-    })
+    });
 
 
     function linkListener() {
         menu.slideUp();
         menuToggle = false;
-        window.scrollTo(0, this.top)
-        navLinks.forEach(link => {
+        window.scrollTo(0, this.top);
+        Array.prototype.forEach.call(navLinks, function (link) {
             link.classList.remove('active');
         });
         this.classList.add('active');
 
     }
-
     function linkListenerDefault() {
         menuToggle = false;
-        window.scrollTo(0, this.top)
-        navLinks.forEach(link => {
+        window.scrollTo(0, this.top);
+        Array.prototype.forEach.call(navLinks, function (link) {
             link.classList.remove('active');
         });
         this.classList.add('active');
