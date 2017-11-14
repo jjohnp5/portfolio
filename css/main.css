@@ -1,4 +1,4 @@
-/*! HTML5 Boilerplate v6.0.1 | MIT License | https://html5boilerplate.com/ */
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
 
 /*
  * What follows is the result of much research on cross-browser styling.
@@ -27,13 +27,12 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
+
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
  *
- * Vendor-prefixed and regular ::selection selectors cannot be combined:
- * https://stackoverflow.com/a/16982510/7133471
- *
+ * These selection rule sets have to be separate.
  * Customize the background color to match your design.
  */
 
@@ -51,14 +50,14 @@ body{
  * A better looking default horizontal rule
  */
 
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-}
+/*hr {*/
+    /*display: block;*/
+    /*height: 1px;*/
+    /*border: 0;*/
+    /*border-top: 1px solid #ccc;*/
+    /*margin: 1em 0;*/
+    /*padding: 0;*/
+/*}*/
 
 /*
  * Remove the gap between audio, canvas, iframes,
@@ -108,8 +107,6 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-
-
 /*maincontainer*/
 .main-container{
     padding: 0 150px;
@@ -118,58 +115,47 @@ textarea {
     justify-content: center;
 }
 section{
+    height: 100vh;
+    width: 100%;
     padding: 25px 0;
+    text-align: center;
 }
 
-hr.style-eight {
-    overflow: visible; /* For IE */
-    padding: 0;
-    border: none;
-    border-top: medium double #333;
-    color: #333;
-    text-align: center;
-    min-width: 300px;
-    align-self: center;
-}
-hr.style-eight:after {
-    content: "<J|L>";
-    display: inline-block;
-    position: relative;
-    top: -0.7em;
-    font-size: 1.5em;
-    padding: 0 0.25em;
-    background: white;
-    z-index: 1;
+
+h2{
+    letter-spacing: 2px;
 }
 /*Banner*/
 .banner{
-    height: 25vh;
+    height: 100vh;
     width: 100%;
-    background-image: url("https://images.unsplash.com/photo-1496303861503-f6ec4e50034e?dpr=1&auto=compress,format&fit=crop&w=750&h=&q=80&cs=tinysrgb&crop=");
+    background-image: url("https://images.unsplash.com/photo-1500835176302-48dbd01f6437?auto=format&fit=crop&w=1289&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
     background-position: center;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.quote{
+    color: #f8f8f8;
+    padding: 10%;
+    font-size: 2em;
 }
 /*NAV*/
 nav{
+    position: absolute;
+    top: 100px;
+    font-size: 1.2em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
-    /*background-color: #010101;*/
-    background: rgba(1,1,1,1);
-    background: -moz-linear-gradient(top, rgba(1,1,1,1) 0%, rgba(1,1,1,1) 24%, rgba(76,76,76,1) 74%, rgba(76,76,76,1) 94%, rgba(102,102,102,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(1,1,1,1)), color-stop(24%, rgba(1,1,1,1)), color-stop(74%, rgba(76,76,76,1)), color-stop(94%, rgba(76,76,76,1)), color-stop(100%, rgba(102,102,102,1)));
-    background: -webkit-linear-gradient(top, rgba(1,1,1,1) 0%, rgba(1,1,1,1) 24%, rgba(76,76,76,1) 74%, rgba(76,76,76,1) 94%, rgba(102,102,102,1) 100%);
-    background: -o-linear-gradient(top, rgba(1,1,1,1) 0%, rgba(1,1,1,1) 24%, rgba(76,76,76,1) 74%, rgba(76,76,76,1) 94%, rgba(102,102,102,1) 100%);
-    background: -ms-linear-gradient(top, rgba(1,1,1,1) 0%, rgba(1,1,1,1) 24%, rgba(76,76,76,1) 74%, rgba(76,76,76,1) 94%, rgba(102,102,102,1) 100%);
-    background: linear-gradient(to bottom, rgba(1,1,1,1) 0%, rgba(1,1,1,1) 24%, rgba(76,76,76,1) 74%, rgba(76,76,76,1) 94%, rgba(102,102,102,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#010101', endColorstr='#666666', GradientType=0 );
     width: 100%;
-    height: 7%;
+    height: 50px;
     z-index: 2;
 }
 .menu{
-    margin: 0;
+    margin-right: 1em;
     align-self: stretch;
     display: flex;
     justify-content: flex-end;
@@ -188,6 +174,7 @@ nav{
     font-weight: 400;
     font-size: 1.3em;
     padding: 4px;
+    margin-right: 1em;
     transition: all 150ms ease-in;
 }
 .menu-bar{
@@ -221,56 +208,135 @@ nav{
 }
 /*ABOUT*/
 .about{
+    background-color: #555353;
     text-align: center;
-    padding: 1em;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-top: 50px;
-}
-.education li{
-    list-style: circle;
-    text-align: left;
-}
-.story{
-    transition-property: display;
-    transition-duration: 300ms;
-    transition-timing-function: ease-in;
 }
 #resume{
-    transition-property: display;
-    transition-duration: 300ms;
-    transition-timing-function: ease-in;
     display: none;
 }
 
+.resume{
+    font-size: 1.1em;
+    color: #313131;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.summary{
+    color: #302b2b;
+    align-self: flex-start;
+    width: 40%;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    background-color: #F8AA5A;
+    margin-left: 2em;
+}
+.education{
+    align-self: flex-end;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    background-color: #f8810a;
+    margin-right: 2em;
+}
+.education li{
+    list-style: none;
+    text-align: left;
+}
+.resume-download{
+    padding-top: 3em;
+    height: 10%;
+}
+.resume-download a{
+    color: #f3e38b;
+    padding: .5em;
+    text-decoration: none;
+    font-size: 1.5em;
+    border-radius: .5em;
+    background-color: #247ff7;
+}
+.resume-download a:hover{
+    border: 2px black outset;
+    background-color: #065bca;
+}
+
+.story{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transition-property: display;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in;
+}
+
 .github{
+    color: white;
     height: 75px;
     width: auto;
 }
 .github a{
     text-decoration: none;
-    color: #222222;
+    color: white;
 }
+.name{
+    color: white;
+    align-self: center;
+    width: 100%;
+}
+.profile-personal{
+    width: 30%;
+    align-self: flex-start;
+    background-color: #e4dede;
+    margin-left: 1em;
+    padding: 1em;
+}
+.profile-education{
+    width: 30%;
+    align-self: center;
+    background-color: #F8AA5A;
+    padding: 1em;    
+}
+.profile-other{
+    width: 30%;
+    align-self: flex-end;
+    background-color: #f8810a;
+    margin-right: 1em;
+    padding: 1em;    
+}
+
+
+
+
 
 /*PROJECT*/
 
 .project-container{
+    background-color: #F8AA5A;
     min-height: 50vh;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-content: center;
 }
 .project{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-content: stretch;
-    align-items: stretch;
-    min-height: 300px;
+    align-content: center;
+    align-items: center;
+    min-height: 80%;
 }
-
+.project > div{
+    margin-top: 15px;
+    width: 100%;
+}
 .project a{
     text-decoration: none;
 }
@@ -278,27 +344,41 @@ nav{
     color: black;
 }
 .proj{
+    min-height: 50vh;
     flex-basis: 40%;
-    min-width: 300px;
     align-content: stretch;
     align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 .proj div{
     background-color: transparent;
-    min-height: 150px;
+    min-height: 200px;
     width: 100%;
     transition: background-image 300ms ease-in;
 }
+.proj a{
+    width: 20%;
+    color: #e0dcdc;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: .5em;
+    border-radius: .5em;
+    background-color: #f8810a;
+}
+.proj a:hover{
+    border: .1em inset black;
+    color: #252525;
+    background-color: #e4dede;
+}
 .proj p{
-    max-width: 300px;
+    max-width: 40%;
 }
 .thumbnails{
     flex-basis: 20%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     align-content: center;
     align-items: center;
@@ -306,8 +386,11 @@ nav{
 .thumbnails div{
     height: 75px;
     min-width: 85px;
-    margin: none;
+    margin: 5px;
     padding: none;
+}
+.proj-thumb:hover{
+    cursor: pointer;
 }
 /* .thumbnails div:nth-child(odd){
     background-color: black;
@@ -318,13 +401,12 @@ nav{
 /* TECHNOLOGY SECTION */
 .tech{
     flex-basis: 40%;
-    width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     flex-wrap: wrap;
-    height: 30vh;
-
+    height: 150px;
 }
 
 
@@ -336,10 +418,11 @@ nav{
     transition-timing-function: ease-in-out;
 }
 .icon{
+    width: 50%;
     text-align: center;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 .icons{
@@ -349,7 +432,7 @@ nav{
 }
 .icons i:hover, .github i:hover{
     font-size: 4em;
-    color: #F8AA5A;
+    color: #f7d7b8;
 }
 .label{
     font-size: .8em;
@@ -359,8 +442,13 @@ nav{
 /*CONTACT*/
 #contact{
     min-height: 100vh;
+    background-color: #f8810a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-#contact h2{text-align: center;
+#contact h2{
+    text-align: center;
 }
 
 .contact{
@@ -369,9 +457,19 @@ nav{
     justify-content: center;
 }
 .contact form{
-    width: 50%;
+    width: 40%;
 }
-
+.contact form input{
+    font-size: 1.3em;
+    color: #2e2e2e;
+    background-color: #F8AA5A;
+}
+.contact form textarea{
+    font-size: 1.2em;
+    height: 150px;
+    color: #2e2e2e;
+    background-color: #F8AA5A;
+}
 .form-group{
     display: flex;
     flex-direction: column;
@@ -395,7 +493,13 @@ nav{
     border: none;
     border-bottom: double #402C17 .3em;
 }
+label{
+    text-transform: uppercase;
+    font-size: 1.1em;
+    color: #2e2e2e
+}
 .submit{
+    width: 25%;
     border: solid transparent 2px;
     border-radius: 5px;
     background-color: #bada55;
@@ -406,6 +510,7 @@ nav{
     background-color: #bada44;
 }
 .reset{
+    width: 25%;
     border: solid transparent 2px;
     border-radius: 5px;
     background-color: #ff8080;
@@ -479,6 +584,38 @@ footer p{
     .menu-bar{
         visibility: visible;
     }
+    section{
+        padding: 0;
+    }
+    .about{
+        height: auto;
+        justify-content: space-between;
+    }
+    .about div{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .proj div{
+        min-height: 75px;
+    }
+    .proj p{
+        font-size: .8em;
+    }
+    .tech{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    .icon{
+        padding: 1em;
+        font-size: .7em;
+        width: 80%;
+        flex-wrap: wrap;
+    }
+    #contact{
+        padding-top: 2em;
+    }
 
 
 }
@@ -509,6 +646,11 @@ footer p{
 @media screen and (max-width: 1366px){
     .contact form{
         width: 90%;
+    }
+}
+@media screen and (max-height: 900px){
+    section{
+        height: auto;
     }
 }
 
@@ -545,9 +687,6 @@ footer p{
 
 
 
-
-
-
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -562,25 +701,18 @@ footer p{
 
 /*
  * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
  */
 
 .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
-    -webkit-clip-path: inset(50%);
-    clip-path: inset(50%);
     height: 1px;
     margin: -1px;
     overflow: hidden;
     padding: 0;
     position: absolute;
     width: 1px;
-    white-space: nowrap; /* 1 */
 }
 
 /*
@@ -592,14 +724,11 @@ footer p{
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
     clip: auto;
-    -webkit-clip-path: none;
-    clip-path: none;
     height: auto;
     margin: 0;
     overflow: visible;
     position: static;
     width: auto;
-    white-space: inherit;
 }
 
 /*
@@ -658,7 +787,9 @@ footer p{
 @media print {
     *,
     *:before,
-    *:after {
+    *:after,
+    *:first-letter,
+    *:first-line {
         background: transparent !important;
         color: #000 !important; /* Black prints faster:
                                    http://www.sanbeiji.com/archives/953 */
@@ -689,9 +820,6 @@ footer p{
         content: "";
     }
 
-    pre {
-        white-space: pre-wrap !important;
-    }
     pre,
     blockquote {
         border: 1px solid #999;
@@ -710,6 +838,10 @@ footer p{
     tr,
     img {
         page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
     }
 
     p,

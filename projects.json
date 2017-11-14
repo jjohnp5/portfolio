@@ -4,7 +4,7 @@
         "name": "zClient",
         "img": "./img/patatap.PNG",
         "link": "/zclient",
-        "desc": "<p>PHP/mySQL client management app. It lets users add or remove new and old clients to their managed clients.</p> <p>For Test - User: test@test.com PW: test</p>",
+        "desc": "PHP/mySQL client management app. It lets users add or remove new and old clients to their managed clients. <br>For Test - User: <strong>test@test.com</strong> PW: <strong>test</strong>",
         "technologies": [
             "devicon-javascript-plain",
             "devicon-html5-plain",

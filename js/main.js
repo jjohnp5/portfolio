@@ -7,7 +7,7 @@
     const homeBtn = $('.home');
     const resumeBtn = $('.resume');
     const nav = document.querySelector('nav');
-    const navRect = document.querySelector('.banner').getBoundingClientRect();
+    const navRect = document.querySelector('nav').getBoundingClientRect();
     const menu = $('.menu');
     const menuBar = document.querySelector('.menu-bar');
     let menuToggle = false;
@@ -82,10 +82,10 @@
 
     }
 
-    nav.style.position = "absolute";
-    nav.style.top = `${navRect.height}px`;
-    nav.style.left = 0;
-    nav.style.height = "auto";
+    // nav.style.position = "absolute";
+    // nav.style.top = `${navRect.height}px`;
+    // nav.style.left = 0;
+    // nav.style.height = "auto";
 
 
     icons.forEach(function (icon) {
@@ -138,6 +138,7 @@
             nav.style.top = 0;
             nav.style.left = 0;
             nav.style.height = "auto";
+            nav.style.backgroundColor = "black";
             // nav.style.flexDirection = "column";
             // nav.style.alignItems = "flex-start";
             // nav.style.alignContent = "center";
@@ -149,6 +150,10 @@
             nav.style.top = `${navRect.height}px`;
             nav.style.left = 0;
             nav.style.height = "auto";
+            nav.style.backgroundColor = "transparent";
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
             // menu.style.visibility = "visible";
             // menu.style.flexDirection = "row";
             // menuBar.style.visibility = "hidden";
@@ -178,7 +183,7 @@
     function linkListener() {
         menu.slideUp();
         menuToggle = false;
-        window.scrollTo(0, this.top)
+        // window.scrollTo(0, this.top)
         navLinks.forEach(link => {
             link.classList.remove('active');
         });
@@ -188,7 +193,7 @@
 
     function linkListenerDefault() {
         menuToggle = false;
-        window.scrollTo(0, this.top)
+        // window.scrollTo(0, this.top)
         navLinks.forEach(link => {
             link.classList.remove('active');
         });
